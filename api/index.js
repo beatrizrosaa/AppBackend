@@ -66,7 +66,7 @@ app.post('/tasks', (req, res) => {
 });
 
 
-// 5. Iniciar o servidor para ouvir requisições na porta definida
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+// // 5. Iniciar o servidor para ouvir requisições na porta definida
+// app.listen(port, () => {
+//     console.log(`Servidor rodando em http://localhost:${port}`);
+// });
