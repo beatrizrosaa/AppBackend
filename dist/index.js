@@ -53,8 +53,13 @@ app.post('/tasks', (req, res) => {
     // Retorna a lista completa com a nova tarefa e o status 201 (Created)
     res.status(201).json(tasks);
 });
-// 5. Iniciar o servidor para ouvir requisições na porta definida
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+// Para desenvolvimento local
+if (process.env.NODE_ENV !== 'production') {
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+        console.log(`Servidor rodando em http://localhost:${port}`);
+    });
+}
+// Para o Vercel (serverless)
+export default app;
 //# sourceMappingURL=index.js.map

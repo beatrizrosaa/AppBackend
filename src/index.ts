@@ -64,8 +64,13 @@ app.post('/tasks', (req, res) => {
     res.status(201).json(tasks);
 });
 
+// Para desenvolvimento local
+if (process.env.NODE_ENV !== 'production') {
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+        console.log(`Servidor rodando em http://localhost:${port}`);
+    });
+}
 
-// 5. Iniciar o servidor para ouvir requisições na porta definida
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+// Para o Vercel (serverless)
+export default app;
