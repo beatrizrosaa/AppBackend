@@ -1,9 +1,17 @@
 import express from "express";
+import cors from "cors";
+
 // 2. Inicializar a aplicação Express
 const app = express();
 const port = 3000;
 
-// 3. Middleware para o Express entender JSON no corpo das requisições
+// 3. Middleware para CORS (permitir requisições do front-end)
+app.use(cors({
+    origin: ['http://localhost:5173', 'http://localhost:3000'], // URLs do front-end
+    credentials: true
+}));
+
+// 4. Middleware para o Express entender JSON no corpo das requisições
 app.use(express.json());
 
 // 4. "Banco de dados" em memória para armazenar as tarefas
